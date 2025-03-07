@@ -9,7 +9,7 @@ type Repository = {
 }
 
 function App() {
-  const [keyword, setKeyword] = useState('');
+  const [ keyword, setKeyword ] = useState('');
   const [ repodata, setRepodata ] = useState<Repository[]>([]);
 
   const handleClick = () =>{
