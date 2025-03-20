@@ -1,12 +1,11 @@
-import { useContext, useState } from "react";
+import { useState, useContext } from "react";
 import Context from "../context/Context";
 
+function LoginForm() {
+  const [ id, setId ] = useState('');
+  const [ password, setPassword ] = useState('');
 
-function LoginForm(){
-  const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
-
-  const [state, dispatch] = useContext(Context);
+  const { state, dispatch }  = useContext(Context);
 
   const userInfo = {
     id: 'react',
@@ -30,23 +29,24 @@ function LoginForm(){
   return(
     <form action="" onSubmit={handleLoginForm}>
       <label>아이디(ID)</label>
-      <input type="text"
-      placeholder="아이디(ID)를 입력하세요"
-      onChange={(event) => setId(event.target.value)}
-      />
-      <br/><br/>
-      <label>비밀번호(PSSWORD)</label>
-      <input type="text"
-      placeholder="비밀번호(PSSWORD)를 입력하세요"
-      onChange={(event) => setPassword(event.target.value)}
-      />
+      <input type="text" 
+        placeholder="아이디(ID)를 입력하세요 :)" 
+        onChange={(event) => setId(event.target.value)}
+        />
       <br />
-      <button>Sign In</button>
       <br />
-      <p>{state.message}</p>
+      <label>비밀번호(PASSWORD)</label>
+      <input type="text" 
+        placeholder="비밀번호(PASSWORD)를 입력하세요 :)" 
+        onChange={(event) => setPassword(event.target.value)}
+        />
+        <br />
+        <br />
+        <button>Sign In</button>
+        <br />
+        <p>{state.message}</p>  
     </form>
   );
 }
-
 
 export default LoginForm;
